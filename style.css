@@ -1,0 +1,230 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+h1, p{
+    color: #f6f6f6;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+}
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient( to top, rgba(16, 0, 243, 0.5), rgba(248, 224, 4, 0.623)), url('bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.navbar{
+    background-color: rgb(30, 255, 0);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    position: relative;
+    z-index: 15;
+    color: red;
+    font-size: 30px;
+    text-shadow: 1px 4px  #fff;
+}
+.list li {
+    list-style: none;
+    display: inline-block;
+}
+.list li:not(:last-child){
+    margin-right: 20px;
+}
+.bar{
+    background-color: #fff;
+    width: 40px;
+    height: 5px;
+    animation-name: svetomusic;
+    animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+}
+.bar:not(:last-child){
+    margin-bottom: 7px;
+}
+.bar2{
+    width: 35px;
+}
+.bar3{
+    width: 30px;
+    transition: .5s;
+}
+.bars{
+    display: none;
+}
+.bg-modal{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    z-index: 200;
+}
+.bg-modal.showmodal{
+    transition: transform 0.5s ease;
+    transform: scale(1);
+}
+.modal{
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 20px;
+}
+.modal h1, .modal p{
+    color: rgb(11, 199, 89);
+    margin-bottom: 20px;
+}
+.btn{
+    position: relative;
+    z-index: 50;
+    padding: 10px 20px;
+    border: 2px solid rgb(0, 252, 0);
+    border-radius: 20px 0px 20px 0px;
+    margin-left: 100px;
+    margin-top: 30px;
+    font-size: 35px;
+    font-weight: 800;
+    -webkit-text-stroke: 2px rgb(136, 255, 0);
+    background: url('images.jpg');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: btnModal 2s linear 1s infinite  alternate;
+}
+@keyframes btnModal {
+    0%{
+       transform: rotate(-20deg);
+    }
+    50%{
+       transform: rotate(0deg);
+    }
+    100%{
+       transform: rotate(20deg);
+    }
+}
+.modal-btns{
+    background-color: rgb(0, 255, 0);
+    padding: 10px 20px;
+    border: 2px solid red;
+    border-radius: 20px 0px 20px 0px;
+
+}
+.obuna{
+    margin-right: 15px;
+}
+
+@keyframes svetomusic{
+    0%{
+        background-color: #fff;
+    }
+    0%, 25%{
+        background-color: blue;
+    }
+    25%, 50%{
+        background-color: yellow;
+    }
+    50%, 75%{
+        background-color: black;
+    }
+    75%, 100%{
+        background-color: rgb(247, 0, 0);
+    }
+}
+.res-nav{
+    position: fixed;
+    z-index: 10;
+    height: 100vh;
+    width: 60%;
+    padding: 40px 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 0px 30px 10px rgb(0, 47, 255);
+    transform: translate(-110%);
+    transition: transform 0.5s ease;
+}
+.res-nav.shownav{
+    transform: translate(0%);
+}
+.res-nav ul{
+    margin-top: 80px;
+}
+.res-nav ul li{
+    margin-top: 30px;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 5px;
+    list-style: none;
+}
+.ring{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    padding: 10px;
+    border-radius: 6px;
+    display: none;
+    z-index: 500;
+}
+
+.ring.showring{
+    display: block;
+    transition: 0.5s;
+    animation: btnModal1 1s linear 0.2s 6 alternate;
+    transform-origin: top center;
+}
+@keyframes btnModal1 {
+    0%{
+       transform: translate(-50%, -50%) rotate(-20deg);
+    }
+    50%{
+       transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100%{
+       transform: translate(-50%, -50%) rotate(20deg);
+    }
+}
+
+@media(max-width:530px){
+    body{
+        background: url('bg1.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+    }
+    .list{
+        display: none;
+    }
+    .bars{
+        display: block;
+    }
+    .container h1, .container p{
+        color: rgb(14, 241, 241);
+    }
+}
